@@ -1,3 +1,14 @@
+"""
+
+Author: Tiffany Chiu
+
+Exploratory Analysis
+
+Analyzes tweets from JSON files, determining number of favorites, tweets, 
+retweets, etc.
+
+"""
+
 import json
 import operator 
 from collections import Counter
