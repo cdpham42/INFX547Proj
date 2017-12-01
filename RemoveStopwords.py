@@ -25,3 +25,11 @@ filtered_words = [word for word in word_list if word not in stopwords.words("eng
 with codecs.open("filtered_words.csv", "w+", "utf-8") as out:
     for word in filtered_words:
         out.write(word + ",")
+        
+#%%
+        
+filtered_words_df = pd.DataFrame()
+
+filtered_words_df["Words"] = filtered_words
+
+filtered_words_df.to_csv("filtered_words_df.csv")
