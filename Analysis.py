@@ -212,6 +212,8 @@ ax.plot(sentiment["balmdotcom"]["date"], compound, color = "black")
 
 fig,ax = plt.subplots(3, 2, figsize = (26.67,30))
 
+lines = ()
+
 for y in range(3):
     
     for x in range(2):
@@ -224,7 +226,7 @@ for y in range(3):
         print(x)
         print(key)
         
-        window = np.int(len(sentiment[key]) / 10)
+        window = np.int(len(sentiment[key]) / 6)
         
         if window%2 == 0:
             window += 1
@@ -239,15 +241,19 @@ for y in range(3):
         l3 = ax[y,x].plot(sentiment[key]["date"], neu, color = "blue")
         l4 = ax[y,x].plot(sentiment[key]["date"], compound, color = "black")
         
-        ax[y,x].set_title(key, fontsize = size)
+        ax[y,x].set_title("#"+key, fontsize = size)
         ax[y,x].set_xlabel("Date", fontsize = sub_size)
         ax[y,x].set_ylabel("Score", fontsize = sub_size)
         ax[y,x].tick_params(axis = "both", labelsize = subsub_size)
         ax[y,x].set_xticks([ax[y,x].get_xticks()[1],ax[y,x].get_xticks()[-1]])
         
-plt.tight_layout()
+        if i == 5:
+            lines = (l1, l2, l3, l4)
         
-plt.figlegend((l1, l2, l3, l4), ("Positive", "Negative", "Neutral", "Compound"), "lower right")
+fig.legend(lines, ("Positive", "Negative", "Neutral", "Compound"))
+plt.title("Polarity Scores Over Time")
+plt.tight_layout()
+plt.show()
 
 fig.savefig(save_path + "Time Series Polarity Scores")
         
