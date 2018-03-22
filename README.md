@@ -6,6 +6,8 @@ Group Members:
 - Pranavi Midathada
 - Casey Pham
 
+Report Visualization: https://navi1218.github.io/infx547finalproject/
+
 ## Project Proposal: Glossier
 
 ### Introduction
